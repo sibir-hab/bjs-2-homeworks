@@ -22,20 +22,15 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	// (проценты, взнос, сумма, количество месяцев)
-	let P = parseInt(percent) / 100 / 12; // проценты в дробном виде
-	let c = parseInt(contribution); // взнос
-	let a = parseInt(amount); // сумма кредита
-	if (Number.isNaN(P) || P < 0) {
-		// проверка на формат числа и отрицательное значение
-		return console.log("false");
-	} else {
+	let percentInput = percent / 100 / 12; // проценты в дробном виде
+	let contributionInput = contribution; // взнос
+	let amountInput = amount; // сумма кредита
+	
 		// Расчет ежемесечного платежа
-		let S = a - c;
-		let n = countMonths;
-		let payment = S * (P + P / ((1 + P) ** n - 1));
-		let totalAmount = (payment * n).toFixed(2); // Общая сумма кредита
+		let bodyCredit = amountInput - contributionInput;
+		let termCredit = countMonths;
+		let monthlyPayment = bodyCredit * (percentInput + percentInput / ((1 + percentInput) ** termCredit - 1));
+		let totalAmount = (monthlyPayment * termCredit).toFixed(2); // Общая сумма кредита
 		console.log(totalAmount);
 		return +totalAmount;
 	}
-}
-calculateTotalMortgage() //Ввод данных и вызов функции
