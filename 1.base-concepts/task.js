@@ -25,12 +25,12 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	let percentInput = percent / 100 / 12; // проценты в дробном виде
 	let contributionInput = contribution; // взнос
 	let amountInput = amount; // сумма кредита
-	
-		// Расчет ежемесечного платежа
-		let bodyCredit = amountInput - contributionInput;
-		let termCredit = countMonths;
-		let monthlyPayment = bodyCredit * (percentInput + percentInput / ((1 + percentInput) ** termCredit - 1));
-		let totalAmount = (monthlyPayment * termCredit).toFixed(2); // Общая сумма кредита
-		console.log(totalAmount);
-		return +totalAmount;
-	}
+
+	// Расчет ежемесечного платежа
+	let bodyCredit = amountInput - contributionInput;
+	let termCredit = countMonths;
+	let monthlyPayment = bodyCredit * (percentInput + percentInput / ((1 + percentInput) ** termCredit - 1));
+	let totalAmount = (monthlyPayment * termCredit).toFixed(2); // Общая сумма кредита
+	console.log(totalAmount);
+	return +totalAmount;
+}
